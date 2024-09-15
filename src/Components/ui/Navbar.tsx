@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 const Navbar = () => {
   return (
     <nav className="fixed top-0 flex items-center justify-start w-full gap-5 p-10">
@@ -27,7 +29,12 @@ const Navbar = () => {
           Contact
         </a>
       </div>
-      <div className="flex-1 border-[1px] border-fuchsia-900"></div>
+      <motion.div
+        className="flex-1 border-[1px] border-fuchsia-900 origin-right"
+        initial={{ scaleX: 0 }}
+        animate={{ scaleX: 1 }}
+        transition={{ duration: 1.5 }}
+      ></motion.div>
     </nav>
   )
 }
