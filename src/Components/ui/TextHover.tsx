@@ -66,6 +66,7 @@ export const TextHover = ({
             type: 'spring',
             stiffness: 300,
             damping: 50,
+            duration,
           }}
         >
           <stop offset="0%" stopColor="white" />
