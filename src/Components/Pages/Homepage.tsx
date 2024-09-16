@@ -139,7 +139,7 @@ const Homepage = () => {
       >
         <div className="absolute w-full min-h-screen bg-dot-current"></div>
         <Topbar pages={'01'} title="ANIME" />
-        <AnimeList classname={`${sidebar ? 'ml-8 xl:ml-0' : 'xl:ml-20'}`} />
+        <AnimeList classname={`${sidebar ? 'ml-8 md:ml-0' : 'md:ml-20'}`} />
       </section>
     </>
   )
