@@ -73,7 +73,7 @@ const Landing = () => {
       <Navbar />
       <Commentbox
         items={comments}
-        speed="slow"
+        speed="normal"
         direction="left"
         className="py-10 bg-black"
       />
