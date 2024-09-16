@@ -18,7 +18,7 @@ const Topbar = ({ title, pages }: topbarProps) => {
         <div className="flex-1">PAGE - {pages} / 06</div>
         <div className="flex-1 border-[1px]"></div>
       </div>
-      <div className="h-10"></div>
+      <div className="h-44"></div>
     </>
   )
 }
