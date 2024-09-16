@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
+import { RxHamburgerMenu } from 'react-icons/rx'
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -25,34 +26,39 @@ const Navbar = () => {
         isScrolled ? 'backdrop-blur-sm' : ''
       }`}
     >
-      <div className="flex flex-initial gap-5 font-bold uppercase transition-all duration-300 ease-in-out text-md xl:text-xl text-fuchsia-700 containers">
-        <a
-          className="transition-colors duration-300 ease-in-out hover:text-slate-400"
-          href="#"
-        >
-          Home
-        </a>
-        <a
-          className="transition-colors duration-300 ease-in-out hover:text-slate-400"
-          href="#"
-        >
-          Anime
-        </a>
-        <a
-          className="transition-colors duration-300 ease-in-out hover:text-slate-400"
-          href="#"
-        >
-          Manga
-        </a>
-        <a
-          className="transition-colors duration-300 ease-in-out hover:text-slate-400"
-          href="#"
-        >
-          Membership
-        </a>
+      <div className="flex flex-initial font-bold uppercase transition-all duration-300 ease-in-out text-md xl:text-xl text-fuchsia-700 containers">
+        <div className="hidden gap-5 md:flex link-list">
+          <a
+            className="transition-colors duration-300 ease-in-out hover:text-slate-400"
+            href="#"
+          >
+            Home
+          </a>
+          <a
+            className="transition-colors duration-300 ease-in-out hover:text-slate-400"
+            href="#"
+          >
+            Anime
+          </a>
+          <a
+            className="transition-colors duration-300 ease-in-out hover:text-slate-400"
+            href="#"
+          >
+            Manga
+          </a>
+          <a
+            className="transition-colors duration-300 ease-in-out hover:text-slate-400"
+            href="#"
+          >
+            Membership
+          </a>
+        </div>
+        <div className="sidebar-icons md:hidden">
+          <RxHamburgerMenu size={40} className="rotate-90" />
+        </div>
       </div>
       <motion.div
-        className="flex-1 border-[1px] border-fuchsia-800 origin-right hidden md:flex"
+        className="flex-1 border-[1px] border-fuchsia-800 origin-right border-double"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.5 }}
