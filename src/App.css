@@ -9,8 +9,35 @@
   user-select: none;
 }
 
+@keyframes glitch-anim {
+  0% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+    transform: translate(0, 0);
+  }
+  20% {
+    text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+    transform: translate(-2px, -2px);
+  }
+  40% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+    transform: translate(2px, 2px);
+  }
+  60% {
+    text-shadow: -2px -2px 0px #ff00ff, 2px 2px 0px #00ffff;
+    transform: translate(-2px, -2px);
+  }
+  80% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+    transform: translate(2px, 2px);
+  }
+  100% {
+    text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+    transform: translate(0, 0);
+  }
+}
+
 .glitch {
-  text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+  animation: glitch-anim 1s infinite;
 }
 
 body::-webkit-scrollbar {
