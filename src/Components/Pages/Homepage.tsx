@@ -5,6 +5,8 @@ import { RxHamburgerMenu } from 'react-icons/rx'
 import { motion } from 'framer-motion'
 import AnimatedCursor from 'react-animated-cursor'
 import { isMobile } from 'react-device-detect'
+import Topbar from '../ui/Topbar'
+import AnimeList from '../ui/Animelist'
 
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
@@ -133,9 +135,11 @@ const Homepage = () => {
       </section>
       <section
         id="anime"
-        className="relative w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
+        className="box-border relative w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
       >
         <div className="absolute w-full min-h-screen bg-dot-current"></div>
+        <Topbar pages={'01'} title="ANIME" />
+        <AnimeList />
       </section>
     </>
   )
