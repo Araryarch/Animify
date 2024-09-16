@@ -37,7 +37,8 @@
 }
 
 .glitch {
-  animation: glitch-anim 1s infinite;
+  animation: glitch-anim 4s infinite;
+  -webkit-animation: glitch-anim 4s infinite;
 }
 
 body::-webkit-scrollbar {
