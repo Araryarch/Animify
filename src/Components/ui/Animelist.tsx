@@ -28,13 +28,12 @@ const AnimeList: React.FC = () => {
   return (
     <div className="flex flex-col gap-2 text-white ml-36">
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
-      <ul className="grid grid-cols-5 grid-rows-3 gap-5">
+      <ul className="grid grid-cols-2 gap-5 xl:grid-cols-5 md:grid-cols-3">
         {animeList.map((anime) => (
           <li
             key={anime.mal_id}
             className="flex flex-col items-center justify-center shadow-sm shadow-fuchsia-950"
           >
-            {/* <p>{anime.synopsis}</p> */}
             <img src={anime.images.jpg.image_url} alt={anime.title} />
             <h1>{anime.title}</h1>
           </li>
