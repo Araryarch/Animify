@@ -97,7 +97,7 @@ export const TextHover = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="text-6xl font-bold fill-transparent stroke-fuchsia-500 xl:stroke-fuchsia-700"
+        className="text-6xl font-bold xl:fill-transparent stroke-fuchsia-500 xl:stroke-fuchsia-700"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
@@ -118,7 +118,7 @@ export const TextHover = ({
         stroke="url(#textGradient)"
         strokeWidth="0.3"
         mask="url(#textMask)"
-        className="text-6xl font-bold fill-transparent"
+        className="text-6xl font-bold xl:fill-transparent"
       >
         {text}
       </text>
