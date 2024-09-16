@@ -32,9 +32,9 @@ const Homepage = () => {
         className="relative w-full min-h-screen text-white bg-center bg-cover"
         style={{ backgroundImage: `url(${Background})` }}
       >
-        <div className="absolute top-0 left-0 hidden p-10 text-fuchsia-800 md:flex">
+        <div className="absolute top-0 right-0 p-10 md:left-0 text-fuchsia-800">
           <h1
-            className="text-6xl font-bold xl:text-7xl logo glitch"
+            className="text-5xl font-bold md:text-7xl logo glitch"
             draggable={false}
           >
             ANIMIFY.
@@ -50,7 +50,7 @@ const Homepage = () => {
             <RxHamburgerMenu size={40} />
           </div>
           <div
-            className={`transition-transform transform ease-in-out duration-500 flex flex-col gap-10 p-2 py-5 text-sm border-l-[1px] link-list border-l-white items-start ${
+            className={`transition-transform transform ease-in-out duration-500 flex flex-col gap-10 p-2 py-5 text-[1.1rem] border-l-[1px] link-list border-l-white items-start ${
               sidebar
                 ? 'md:-translate-x-64 translate-x-0'
                 : 'md:translate-x-0 -translate-x-64'
@@ -98,7 +98,7 @@ const Homepage = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            className="flex-1 border-[1px] origin-right"
+            className="flex-1 border-[1px] origin-right h-1"
           ></motion.div>
           <div className="flex-1 hidden md:flex"></div>
           <motion.div
@@ -118,10 +118,11 @@ const Homepage = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            className="flex-1 border-[1px] origin-left md:flex hidden"
+            className="flex-1 border-[1px] origin-left md:flex hidden  h-1"
           ></motion.div>
         </div>
       </section>
+      <section id="anime" className="w-full min-h-screen"></section>
     </>
   )
 }
