@@ -28,7 +28,7 @@ const Homepage = () => {
         />
       )}
       <section
-        id="Hero"
+        id="hero"
         className="relative w-full min-h-screen text-white bg-center bg-cover"
         style={{
           backgroundImage: `url(${Background})`,
@@ -60,13 +60,13 @@ const Homepage = () => {
             }`}
           >
             <a
-              href=""
-              className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300 active"
+              href="#hero"
+              className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
               HOME
             </a>
             <a
-              href=""
+              href="#anime"
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
               ANIME
@@ -128,7 +128,9 @@ const Homepage = () => {
       <section
         id="anime"
         className="w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
-      ></section>
+      >
+        <div className="w-full min-h-screen containers bg-dot-current"></div>
+      </section>
     </>
   )
 }
