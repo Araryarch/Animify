@@ -75,7 +75,7 @@ export const Background = ({
           className
         )}
       >
-        <div className="absolute top-0 bottom-0 left-0 right-0 bg-[url('./background.jpg')] brightness-[20%]"></div>
+        <div className="absolute top-0 bottom-0 left-0 right-0 bg-[url('./Image/background.jpg')] brightness-[20%]"></div>
 
         {beams.map((beam) => (
           <CollisionMechanism
