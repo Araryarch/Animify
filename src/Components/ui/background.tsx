@@ -2,7 +2,7 @@
 import { cn } from './lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useRef, useState, useEffect } from 'react'
-import backgroundImage from './assets/background.jpg'
+import backgroundImage from '../../assets/background.jpg'
 
 export const Background = ({
   children,
