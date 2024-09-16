@@ -30,10 +30,13 @@ const AnimeList: React.FC = () => {
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
       <ul className="grid grid-cols-5 grid-rows-3 gap-5">
         {animeList.map((anime) => (
-          <li key={anime.mal_id} className="shadow-sm shadow-fuchsia-950">
-            <h2>{anime.title}</h2>
+          <li
+            key={anime.mal_id}
+            className="flex flex-col items-center justify-center shadow-sm shadow-fuchsia-950"
+          >
             {/* <p>{anime.synopsis}</p> */}
             <img src={anime.images.jpg.image_url} alt={anime.title} />
+            <h1>{anime.title}</h1>
           </li>
         ))}
       </ul>
