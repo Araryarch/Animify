@@ -40,7 +40,7 @@ const Homepage = () => {
             ANIMIFY.
           </h1>
         </div>
-        <div className="absolute top-0 bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center sidebar">
+        <div className="absolute top-0 bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center sidebar bg-gradient-to-r from-black to-transparent">
           <div
             className={`${
               sidebar ? 'md:rotate-90 rotate-0' : 'md:rotate-0 rotate-90'
