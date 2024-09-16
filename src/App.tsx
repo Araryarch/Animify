@@ -9,7 +9,7 @@ const App = () => {
       {!isMobile && (
         <AnimatedCursor
           innerSize={8}
-          outerSize={50}
+          outerSize={35}
           innerScale={1}
           outerScale={1.7}
           outerAlpha={0}
