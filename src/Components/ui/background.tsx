@@ -70,10 +70,12 @@ export const Background = ({
     <div
       ref={parentRef}
       className={cn(
-        'h-96 min-h-screen bg-black relative flex items-center w-full justify-center overflow-hidden',
+        'h-96 min-h-screen relative flex items-center w-full justify-center overflow-hidden',
         className
       )}
     >
+      <div className="absolute top-0 bottom-0 left-0 right-0 bg-[url('./background.jpg')] brightness-[20%]"></div>
+
       {beams.map((beam) => (
         <CollisionMechanism
           key={beam.initialX + 'beam-idx'}

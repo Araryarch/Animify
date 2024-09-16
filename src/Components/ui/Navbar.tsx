@@ -1,8 +1,30 @@
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
 
 const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  const handleScroll = () => {
+    if (window.scrollY > 50) {
+      setIsScrolled(true)
+    } else {
+      setIsScrolled(false)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
+
   return (
-    <nav className="fixed top-0 flex items-center justify-start w-full gap-5 p-10">
+    <nav
+      className={`fixed top-0 flex items-center justify-center w-full gap-5 p-10 md:justify-start ${
+        isScrolled ? 'backdrop-blur-sm' : ''
+      }`}
+    >
       <div className="flex flex-initial gap-5 text-sm font-medium uppercase transition-all duration-300 ease-in-out xl:text-xl text-fuchsia-900 containers">
         <a
           className="transition-colors duration-300 ease-in-out hover:text-slate-400"
@@ -30,7 +52,7 @@ const Navbar = () => {
         </a>
       </div>
       <motion.div
-        className="flex-1 border-[1px] border-fuchsia-900 origin-right"
+        className="flex-1 border-[1px] border-fuchsia-900 origin-right hidden md:flex"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.5 }}

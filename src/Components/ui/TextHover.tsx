@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 
 export const TextHover = ({
   text,
-  duration,
 }: {
   text: string
   duration?: number
@@ -66,7 +65,6 @@ export const TextHover = ({
             type: 'spring',
             stiffness: 200,
             damping: 50,
-            duration: duration,
           }}
         >
           <stop offset="0%" stopColor="white" />
@@ -88,7 +86,7 @@ export const TextHover = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="text-6xl font-bold stroke-neutral-500 xl:stroke-fuchsia-950 fill-transparent"
+        className="text-6xl font-bold stroke-fuchsia-500 xl:stroke-fuchsia-900 fill-transparent"
         style={{ opacity: hovered ? 0.7 : 0 }}
       >
         {text}
@@ -99,7 +97,7 @@ export const TextHover = ({
         textAnchor="middle"
         dominantBaseline="middle"
         strokeWidth="0.3"
-        className="text-6xl font-bold fill-transparent stroke-neutral-500 xl:stroke-fuchsia-950"
+        className="text-6xl font-bold fill-transparent stroke-fuchsia-500 xl:stroke-fuchsia-900"
         initial={{ strokeDashoffset: 1000, strokeDasharray: 1000 }}
         animate={{
           strokeDashoffset: 0,
