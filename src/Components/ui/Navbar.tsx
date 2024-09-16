@@ -25,7 +25,7 @@ const Navbar = () => {
         isScrolled ? 'backdrop-blur-sm' : ''
       }`}
     >
-      <div className="flex flex-initial gap-5 text-sm font-medium uppercase transition-all duration-300 ease-in-out xl:text-xl text-fuchsia-900 containers">
+      <div className="flex flex-initial gap-5 text-sm font-bold uppercase transition-all duration-300 ease-in-out xl:text-xl text-fuchsia-700 containers">
         <a
           className="transition-colors duration-300 ease-in-out hover:text-slate-400"
           href="#"
@@ -42,17 +42,17 @@ const Navbar = () => {
           className="transition-colors duration-300 ease-in-out hover:text-slate-400"
           href="#"
         >
-          Membership
+          Manga
         </a>
         <a
           className="transition-colors duration-300 ease-in-out hover:text-slate-400"
           href="#"
         >
-          Contact
+          Membership
         </a>
       </div>
       <motion.div
-        className="flex-1 border-[1px] border-fuchsia-900 origin-right hidden md:flex"
+        className="flex-1 border-[1px] border-fuchsia-800 origin-right hidden md:flex"
         initial={{ scaleX: 0 }}
         animate={{ scaleX: 1 }}
         transition={{ duration: 1.5 }}
