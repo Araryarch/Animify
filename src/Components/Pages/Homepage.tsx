@@ -30,7 +30,10 @@ const Homepage = () => {
       <section
         id="Hero"
         className="relative w-full min-h-screen text-white bg-center bg-cover"
-        style={{ backgroundImage: `url(${Background})` }}
+        style={{
+          backgroundImage: `url(${Background})`,
+          backgroundAttachment: 'fixed',
+        }}
       >
         <div className="absolute top-0 right-0 p-10 md:left-0 text-fuchsia-800">
           <h1
@@ -40,7 +43,7 @@ const Homepage = () => {
             ANIMIFY.
           </h1>
         </div>
-        <div className="absolute top-0 bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center sidebar bg-gradient-to-r from-black to-transparent">
+        <div className="fixed top-0 bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center sidebar bg-gradient-to-r from-black to-transparent">
           <div
             className={`${
               sidebar ? 'md:rotate-90 rotate-0' : 'md:rotate-0 rotate-90'
@@ -122,7 +125,10 @@ const Homepage = () => {
           ></motion.div>
         </div>
       </section>
-      <section id="anime" className="w-full min-h-screen"></section>
+      <section
+        id="anime"
+        className="w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
+      ></section>
     </>
   )
 }
