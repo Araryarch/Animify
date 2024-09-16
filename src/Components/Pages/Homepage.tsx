@@ -43,7 +43,13 @@ const Homepage = () => {
             ANIMIFY.
           </h1>
         </div>
-        <div className="fixed top-0 bottom-0 left-0 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center sidebar bg-gradient-to-r from-black to-transparent">
+        <div
+          className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center  ${
+            sidebar
+              ? 'bg-gradient-to-r from-black to-transparent xl:bg-gradient-to-r xl:from-transparent'
+              : 'xl:bg-gradient-to-r from-black to-transparent'
+          }`}
+        >
           <div
             className={`${
               sidebar ? 'md:rotate-90 rotate-0' : 'md:rotate-0 rotate-90'
@@ -121,15 +127,15 @@ const Homepage = () => {
           <motion.div
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
-            className="flex-1 border-[1px] origin-left md:flex hidden  h-1"
+            className="flex-1 border-[1px] origin-left md:flex hidden h-1"
           ></motion.div>
         </div>
       </section>
       <section
         id="anime"
-        className="w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
+        className="relative w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
       >
-        <div className="w-full min-h-screen containers bg-dot-current"></div>
+        <div className="absolute w-full min-h-screen bg-dot-current"></div>
       </section>
     </>
   )
