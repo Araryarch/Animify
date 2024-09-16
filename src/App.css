@@ -63,7 +63,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .animate-comb {
-  animation: bouncePulse 2s infinite;
+  animation: bouncePulse 4s infinite;
+  -webkit-animation: bouncePulse 4s infinite;
 }
 
 @keyframes bouncePulse {
