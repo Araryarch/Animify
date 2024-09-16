@@ -1,0 +1,23 @@
+/* scrollbar.css */
+
+/* Apply custom scrollbar styles to the body */
+body::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+  background-color: #2d2d2d; /* Background color of the scrollbar */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #c026d3; /* Color of the scrollbar handle */
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #4a4a4a; /* Border around the handle */
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #2d2d2d; /* Background color of the track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+/* Change color when the scrollbar handle is hovered */
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #a21ba2; /* Darker shade when hovered */
+}
