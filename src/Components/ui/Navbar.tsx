@@ -25,7 +25,7 @@ const Navbar = () => {
         isScrolled ? 'backdrop-blur-sm' : ''
       }`}
     >
-      <div className="flex flex-initial gap-5 text-sm font-bold uppercase transition-all duration-300 ease-in-out xl:text-xl text-fuchsia-700 containers">
+      <div className="flex flex-initial gap-5 font-bold uppercase transition-all duration-300 ease-in-out text-md xl:text-xl text-fuchsia-700 containers">
         <a
           className="transition-colors duration-300 ease-in-out hover:text-slate-400"
           href="#"
