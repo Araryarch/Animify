@@ -2,6 +2,7 @@
 import { cn } from './lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import React, { useRef, useState, useEffect } from 'react'
+import backgroundImage from './assets/background.jpg'
 
 export const Background = ({
   children,
@@ -77,7 +78,7 @@ export const Background = ({
       >
         <div
           style={{
-            backgroundImage: 'url(./assets/background.jpg)',
+            backgroundImage: `url(${backgroundImage})`,
           }}
           className="absolute top-0 bottom-0 left-0 right-0 brightness-[20%] bg-cover bg-center"
         ></div>
