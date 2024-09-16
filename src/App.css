@@ -1,23 +1,33 @@
-/* scrollbar.css */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Russo+One&display=swap');
 
-/* Apply custom scrollbar styles to the body */
+* {
+  font-family: 'Rajdhani';
+}
+
+.logo {
+  font-family: 'Russo One' !important;
+}
+
+.glitch {
+  text-shadow: 2px 2px 0px #ff00ff, -2px -2px 0px #00ffff;
+}
+
 body::-webkit-scrollbar {
-  width: 8px; /* Width of the scrollbar */
-  background-color: #2d2d2d; /* Background color of the scrollbar */
+  width: 5px;
+  background-color: #2d2d2d;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: #c026d3; /* Color of the scrollbar handle */
-  border-radius: 10px; /* Rounded corners */
-  border: 2px solid #4a4a4a; /* Border around the handle */
+  background-color: #c026d3;
+  border-radius: 10px;
+  border: 2px solid #4a4a4a;
 }
 
 body::-webkit-scrollbar-track {
-  background-color: #2d2d2d; /* Background color of the track */
-  border-radius: 10px; /* Rounded corners */
+  background-color: #2d2d2d;
+  border-radius: 10px;
 }
 
-/* Change color when the scrollbar handle is hovered */
 body::-webkit-scrollbar-thumb:hover {
-  background-color: #a21ba2; /* Darker shade when hovered */
+  background-color: #a21ba2;
 }
