@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { fetchAnimeList, Anime } from '../../service/apiService'
 
-const AnimeList: React.FC = () => {
+interface Propstype {
+  classname: string
+}
+
+const AnimeList: React.FC<Propstype> = ({ classname }) => {
   const [animeList, setAnimeList] = useState<Anime[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -26,7 +30,7 @@ const AnimeList: React.FC = () => {
   if (error) return <p>{error}</p>
 
   return (
-    <div className="flex flex-col gap-2 text-white ml-36">
+    <div className={`flex flex-col gap-2 text-white ${classname} px-24`}>
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
       <ul className="grid grid-cols-2 gap-5 xl:grid-cols-5 md:grid-cols-3">
         {animeList.map((anime) => (
