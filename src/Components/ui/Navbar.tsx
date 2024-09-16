@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 flex items-center justify-center w-full gap-5 p-10 md:justify-start ${
+      className={`fixed top-0 flex items-center justify-center w-full gap-5 p-10 md:justify-start z-50 ${
         isScrolled ? 'backdrop-blur-sm' : ''
       }`}
     >
