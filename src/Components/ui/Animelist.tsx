@@ -67,7 +67,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
               />
             </div>
             <div className="flex items-center justify-center p-2">
-              <h1>{anime.title}</h1>
+              <h1 className="font-bold text-center">{anime.title}</h1>
             </div>
           </li>
         ))}
