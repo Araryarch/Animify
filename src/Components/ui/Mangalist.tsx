@@ -58,7 +58,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
         {mangaList.map((manga) => (
           <li
             key={manga.mal_id}
-            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-fuchsia-950"
+            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-white"
           >
             <Link
               to={`/manga/${manga.mal_id}`}

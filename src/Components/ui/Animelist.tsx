@@ -51,14 +51,14 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
 
   return (
     <div
-      className={`flex flex-col gap-2 text-white ${classname} px-24 transition-all duration-300 ease-in-out`}
+      className={`flex flex-col gap-2 text-white ${classname} px-24 transition-all duration-300 ease-in-out py-2`}
     >
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
       <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 md:grid-cols-3">
         {animeList.map((anime) => (
           <li
             key={anime.mal_id}
-            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-fuchsia-950"
+            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-white"
           >
             <Link
               to={`/anime/${anime.mal_id}`}
