@@ -3,8 +3,6 @@ import Background from '../../assets/goku.gif'
 import Scroller from '../../assets/scroller.png'
 import { RxHamburgerMenu } from 'react-icons/rx'
 import { motion } from 'framer-motion'
-import AnimatedCursor from 'react-animated-cursor'
-import { isMobile } from 'react-device-detect'
 import Topbar from '../ui/Topbar'
 import AnimeList from '../ui/Animelist'
 import MangaList from '../ui/Mangalist'
@@ -14,22 +12,6 @@ const Homepage = () => {
 
   return (
     <>
-      {!isMobile && (
-        <AnimatedCursor
-          innerSize={8}
-          outerSize={35}
-          innerScale={1}
-          outerScale={1.7}
-          outerAlpha={0}
-          outerStyle={{
-            border: '3px solid white',
-            mixBlendMode: 'exclusion',
-          }}
-          innerStyle={{
-            backgroundColor: 'transparent',
-          }}
-        />
-      )}
       <section
         id="hero"
         className="relative w-full min-h-screen text-white bg-center bg-cover"
