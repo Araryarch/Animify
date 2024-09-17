@@ -53,7 +53,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
       className={`flex flex-col gap-2 text-white ${classname} px-24 transition-all duration-300 ease-in-out`}
     >
       <h1 className="text-3xl font-bold">TOP MANGA</h1>
-      <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 xl:grid-cols-5 md:grid-cols-4">
+      <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 md:grid-cols-3">
         {mangaList.map((manga) => (
           <li
             key={manga.mal_id}
