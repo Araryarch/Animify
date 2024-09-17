@@ -14,7 +14,7 @@ const requestQueue: {
 }[] = []
 
 let isRequestInProgress = false
-const RATE_LIMIT_DELAY = 1000
+const RATE_LIMIT_DELAY = 500
 
 const processQueue = () => {
   if (isRequestInProgress || requestQueue.length === 0) return
@@ -83,6 +83,29 @@ export const fetchAnimeList = async (): Promise<Anime[]> => {
     return response.data
   } catch (error) {
     console.error('Error fetching anime list', error)
+    throw error
+  }
+}
+
+export const fetchAnimeById = async (id: number): Promise<Anime> => {
+  try {
+    const response = (await fetchWithRateLimit(
+      `/anime/${id}`
+    )) as ApiResponse<Anime>
+    return response.data
+  } catch (error) {
+    console.error('Error fetching anime details', error)
+    throw error
+  }
+}
+export const fetchMangaById = async (id: number): Promise<Manga> => {
+  try {
+    const response = (await fetchWithRateLimit(
+      `/manga/${id}`
+    )) as ApiResponse<Anime>
+    return response.data
+  } catch (error) {
+    console.error('Error fetching anime details', error)
     throw error
   }
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { fetchAnimeList, Anime } from '../../service/apiService'
+import { Link } from 'react-router-dom'
 
 interface Propstype {
   classname: string
@@ -59,13 +60,16 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
             key={anime.mal_id}
             className="flex flex-col items-center justify-center p-2 shadow-sm shadow-fuchsia-950"
           >
-            <div className="relative w-full h-full overflow-hidden">
+            <Link
+              to={`/anime/${anime.mal_id}`}
+              className="relative w-full h-full overflow-hidden"
+            >
               <img
                 src={anime.images.jpg.image_url}
                 alt={anime.title}
                 className="object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
               />
-            </div>
+            </Link>
             <div className="flex items-center justify-center p-2">
               <h1 className="font-bold text-center">{anime.title}</h1>
             </div>
