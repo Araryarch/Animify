@@ -38,7 +38,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
         {animeList.map((anime) => (
           <li
             key={anime.mal_id}
-            className="flex flex-col items-center justify-center shadow-sm shadow-fuchsia-950"
+            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-fuchsia-950"
           >
             <img src={anime.images.jpg.image_url} alt={anime.title} />
             <h1>{anime.title}</h1>
