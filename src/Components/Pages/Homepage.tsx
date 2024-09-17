@@ -137,7 +137,6 @@ const Homepage = () => {
         id="anime"
         className="box-border relative w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
       >
-        <div className="absolute top-0 bottom-0 left-0 right-0"></div>
         <Topbar pages={'01'} title="ANIME" />
         <AnimeList classname={`${sidebar ? 'ml-0 md:ml-0' : 'md:ml-20'}`} />
       </section>
