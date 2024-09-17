@@ -7,6 +7,7 @@ import AnimatedCursor from 'react-animated-cursor'
 import { isMobile } from 'react-device-detect'
 import Topbar from '../ui/Topbar'
 import AnimeList from '../ui/Animelist'
+import MangaList from '../ui/Mangalist'
 
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
@@ -139,6 +140,13 @@ const Homepage = () => {
       >
         <Topbar pages={'01'} title="ANIME" />
         <AnimeList classname={`${sidebar ? 'ml-0 md:ml-0' : 'md:ml-20'}`} />
+      </section>
+      <section
+        id="manga"
+        className="box-border relative w-full min-h-screen bg-gradient-to-b from-fuchsia-950 to-black"
+      >
+        <Topbar pages={'02'} title="MANGA" />
+        <MangaList classname={`${sidebar ? 'ml-0 md:ml-0' : 'md:ml-20'}`} />
       </section>
     </>
   )
