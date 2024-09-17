@@ -58,7 +58,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
         {animeList.map((anime) => (
           <li
             key={anime.mal_id}
-            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-white"
+            className="flex flex-col items-center justify-center p-2 shadow-sm shadow-white bg-gradient-to-t from-black from-5% to-fuchsia-950"
           >
             <Link
               to={`/anime/${anime.mal_id}`}
