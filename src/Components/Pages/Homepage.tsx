@@ -81,7 +81,7 @@ const Homepage = () => {
               ANIME
             </a>
             <a
-              href=""
+              href="#manga"
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
               MANGA

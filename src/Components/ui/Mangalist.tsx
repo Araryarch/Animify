@@ -59,8 +59,16 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
             key={manga.mal_id}
             className="flex flex-col items-center justify-center p-2 shadow-sm shadow-fuchsia-950"
           >
-            <img src={manga.images.jpg.image_url} alt={manga.title} />
-            <h1>{manga.title}</h1>
+            <div className="relative w-full h-full overflow-hidden">
+              <img
+                src={manga.images.jpg.image_url}
+                alt={manga.title}
+                className="object-cover transition-transform duration-300 ease-in-out transform hover:scale-110"
+              />
+            </div>
+            <div className="flex items-center justify-center p-2">
+              <h1>{manga.title}</h1>
+            </div>
           </li>
         ))}
       </ul>
