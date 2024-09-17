@@ -34,7 +34,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
       className={`flex flex-col gap-2 text-white ${classname} px-24 transition-all duration-300 ease-in-out`}
     >
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
-      <ul className="grid grid-cols-2 gap-5 sm:grid-cols-2 xl:grid-cols-5 md:grid-cols-3">
+      <ul className="grid grid-cols-2 gap-5 sm:grid-cols-3 xl:grid-cols-5 md:grid-cols-4">
         {animeList.map((anime) => (
           <li
             key={anime.mal_id}
