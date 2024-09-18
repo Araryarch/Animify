@@ -73,7 +73,7 @@ const AnimeDetail: React.FC = () => {
 
       <div className="flex flex-wrap items-center justify-center containers">
         <div
-          className="bg-cover image-anime aspect-[9/16] w-52 m-10 rounded-md"
+          className="bg-cover image-anime aspect-[11/16] w-52 m-10 rounded-md"
           style={{
             backgroundImage: `url(${anime.images.jpg.image_url})`,
           }}

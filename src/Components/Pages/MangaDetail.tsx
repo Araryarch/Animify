@@ -81,7 +81,7 @@ const MangaDetail: React.FC = () => {
       </Link>
       <div className="flex flex-wrap items-center justify-center containers">
         <div
-          className="bg-cover image-Manga aspect-[9/16] w-52 m-10 rounded-md"
+          className="bg-cover image-Manga aspect-[11/16] w-52 m-10 rounded-md"
           style={{
             backgroundImage: `url(${Manga.images.jpg.image_url})`,
           }}
