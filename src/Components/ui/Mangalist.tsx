@@ -106,34 +106,46 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
     >
       <h1 className="text-3xl font-bold">TOP Manga</h1>
       <Slider {...settings}>
-        {MangaList.map((Manga) => (
-          <Link
-            to={`/Manga/${Manga.mal_id}`}
-            key={Manga.mal_id}
-            className="card"
-          >
-            <div
-              className="image-card aspect-[9/16] bg-cover mx-4 rounded-md relative overflow-hidden"
-              style={{ backgroundImage: `url(${Manga.images.jpg.image_url})` }}
+        {MangaList.map((Manga) => {
+          const truncatedSynopsis =
+            Manga.synopsis.length > 100
+              ? Manga.synopsis.substring(0, 100) + '...'
+              : Manga.synopsis
+
+          return (
+            <Link
+              to={`/Manga/${Manga.mal_id}`}
+              key={Manga.mal_id}
+              className="py-12 card group"
             >
-              <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-end py-2 bg-gradient-to-t from-fuchsia-950 to-transparent">
-                <h1 className="p-2 text-xl text-left text-white">
-                  {Manga.title}
-                </h1>
-                <div className="flex flex-wrap px-2 mt-2">
-                  {Manga.genres.map((genre) => (
-                    <span
-                      key={genre.mal_id}
-                      className="px-2 py-1 mb-1 mr-1 text-xs text-white bg-gray-800 rounded-full"
-                    >
-                      {genre.name}
-                    </span>
-                  ))}
+              <div
+                className="image-card aspect-[9/16] bg-cover mx-4 rounded-md relative overflow-hidden group-hover:scale-110 transition-all ease-in-out duration-300"
+                style={{
+                  backgroundImage: `url(${Manga.images.jpg.image_url})`,
+                }}
+              >
+                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
+                  <h1 className="p-2 text-xs font-bold text-left text-white md:text-xl">
+                    {Manga.title}
+                  </h1>
+                  <div className="flex flex-wrap px-2 mt-2">
+                    {Manga.genres.map((genre) => (
+                      <span
+                        key={genre.mal_id}
+                        className="px-2 py-1 mb-1 mr-1 text-xs text-white bg-gray-800 rounded-full"
+                      >
+                        {genre.name}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="absolute px-2 mt-2 text-xs transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 group-hover:relative">
+                    <p>{truncatedSynopsis}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Link>
-        ))}
+            </Link>
+          )
+        })}
       </Slider>
     </div>
   )

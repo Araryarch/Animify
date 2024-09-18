@@ -107,7 +107,6 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
       <h1 className="text-3xl font-bold">TOP ANIME</h1>
       <Slider {...settings}>
         {animeList.map((anime) => {
-          // Truncate the synopsis
           const truncatedSynopsis =
             anime.synopsis.length > 100
               ? anime.synopsis.substring(0, 100) + '...'
@@ -117,7 +116,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
             <Link
               to={`/anime/${anime.mal_id}`}
               key={anime.mal_id}
-              className="card group"
+              className="py-12 card group"
             >
               <div
                 className="image-card aspect-[9/16] bg-cover mx-4 rounded-md relative overflow-hidden group-hover:scale-110 transition-all ease-in-out duration-300"
@@ -125,7 +124,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
                   backgroundImage: `url(${anime.images.jpg.image_url})`,
                 }}
               >
-                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
+                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
                   <h1 className="p-2 text-xs font-bold text-left text-white md:text-xl">
                     {anime.title}
                   </h1>
