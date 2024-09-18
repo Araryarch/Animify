@@ -143,7 +143,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
                   backgroundImage: `url(${Manga.images.jpg.image_url})`,
                 }}
               >
-                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
+                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 border-black group-hover:border-2 group-hover:py-5 bg-gradient-to-t from-black to-transparent">
                   <h1 className="p-2 text-xl font-bold text-left text-white">
                     {Manga.title}
                   </h1>
