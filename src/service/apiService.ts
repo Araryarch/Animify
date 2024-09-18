@@ -49,6 +49,13 @@ const fetchWithRateLimit = (endpoint: string): Promise<unknown> => {
   })
 }
 
+export interface Genre {
+  mal_id: number
+  type: string
+  name: string
+  url: string
+}
+
 export interface Anime {
   mal_id: number
   title: string
@@ -58,6 +65,7 @@ export interface Anime {
       image_url: string
     }
   }
+  genres: Genre[]
 }
 
 export interface Manga {
@@ -69,6 +77,7 @@ export interface Manga {
       image_url: string
     }
   }
+  genres: Genre[]
 }
 
 export interface ApiResponse<T> {

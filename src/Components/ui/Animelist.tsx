@@ -113,13 +113,24 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
             className="card"
           >
             <div
-              className="image-card aspect-[9/16] bg-cover mx-4 rounded-sm relative"
+              className="image-card aspect-[9/16] bg-cover mx-4 rounded-sm relative overflow-hidden"
               style={{ backgroundImage: `url(${anime.images.jpg.image_url})` }}
             >
-              <div className="absolute top-0 bottom-0 left-0 right-0"></div>
-            </div>
-            <div className="py-2 font-bold text-center hover:text-fuchsia-400">
-              {anime.title}
+              <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-end py-2 bg-gradient-to-t from-fuchsia-950 to-transparent">
+                <h1 className="p-2 text-xl text-left text-white">
+                  {anime.title}
+                </h1>
+                <div className="flex flex-wrap px-2 mt-2">
+                  {anime.genres.map((genre) => (
+                    <span
+                      key={genre.mal_id}
+                      className="px-2 py-1 mb-1 mr-1 text-xs text-white bg-gray-800 rounded-full"
+                    >
+                      {genre.name}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </Link>
         ))}
