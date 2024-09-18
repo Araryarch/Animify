@@ -121,7 +121,9 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
     <div
       className={`flex flex-col gap-2 text-white ${classname} md:px-20 px-10 transition-all duration-300 ease-in-out py-2`}
     >
-      <h1 className="text-3xl font-bold uppercase">TOP Manga</h1>
+      <h1 className="text-3xl font-bold text-right uppercase md:text-left">
+        TOP Manga
+      </h1>
       <Slider {...settings}>
         {MangaList.map((Manga) => {
           const truncatedSynopsis =
