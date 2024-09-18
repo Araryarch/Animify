@@ -9,13 +9,15 @@
   user-select: none;
 }
 
-html {
-  scroll-snap-type: y proximity;
-}
+@media (min-width: 1024px) {
+  html {
+    scroll-snap-type: y proximity;
+  }
 
-section {
-  scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  section {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
 }
 
 @keyframes glitch-anim {
