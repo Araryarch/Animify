@@ -58,10 +58,17 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
     prevArrow: <PrevArrow />,
     responsive: [
       {
+        breakpoint: 1300,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 4,
+        },
+      },
+      {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
+          slidesToShow: 3,
+          slidesToScroll: 3,
         },
       },
       {
