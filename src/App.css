@@ -2,7 +2,6 @@
 
 * {
   font-family: 'Rajdhani';
-  scroll-behavior: smooth;
 }
 
 .logo {
@@ -10,8 +9,13 @@
   user-select: none;
 }
 
+html {
+  scroll-snap-type: y proximity;
+}
+
 section {
-  scroll-snap-type: mandatory y;
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
 }
 
 @keyframes glitch-anim {
