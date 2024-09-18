@@ -125,7 +125,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
                 }}
               >
                 <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
-                  <h1 className="p-2 text-xs font-bold text-left text-white md:text-xl">
+                  <h1 className="p-2 text-xl font-bold text-left text-white">
                     {Manga.title}
                   </h1>
                   <div className="flex flex-wrap px-2 mt-2">
