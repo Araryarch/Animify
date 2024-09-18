@@ -144,6 +144,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
                 tiltMaxAngleY={25}
                 scale={1.1}
                 transitionSpeed={300}
+                glareEnable
               >
                 <div
                   className="w-full h-full bg-center bg-cover"
