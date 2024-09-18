@@ -50,7 +50,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 5,
     slidesToScroll: 5,
     autoplay: true,
