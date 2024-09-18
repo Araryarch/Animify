@@ -29,10 +29,10 @@ const Homepage = () => {
           </h1>
         </div>
         <div
-          className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold xl:p-10 md:justify-center  ${
+          className={`fixed top-0 bottom-0 left-0 z-50 flex flex-col items-start justify-start gap-2 p-5 pt-10 font-semibold md:p-10 md:justify-center  ${
             sidebar
-              ? 'bg-gradient-to-r from-black to-transparent xl:bg-gradient-to-r xl:from-transparent'
-              : 'xl:bg-gradient-to-r from-black to-transparent'
+              ? 'bg-gradient-to-r from-black to-transparent md:bg-gradient-to-r md:from-transparent'
+              : 'md:bg-gradient-to-r from-black to-transparent'
           }`}
         >
           <div
