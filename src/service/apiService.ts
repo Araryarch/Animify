@@ -66,6 +66,9 @@ export interface Anime {
     }
   }
   genres: Genre[]
+  trailer: {
+    embed_url: string
+  }
 }
 
 export interface Manga {

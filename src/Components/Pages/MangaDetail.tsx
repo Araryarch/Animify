@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { fetchMangaById, Manga } from '../../service/apiService'
 
 const MangaDetail: React.FC = () => {
@@ -24,19 +24,95 @@ const MangaDetail: React.FC = () => {
     getMangaDetails()
   }, [id])
 
-  if (loading) return <p>Loading...</p>
+  if (loading)
+    return (
+      <div className="relative w-full min-h-screen bg-fuchsia-950 bg-dot-black">
+        {/* Banner Skeleton */}
+        <div className="relative w-full bg-top bg-cover h-52 banner">
+          <div className="absolute top-0 bottom-0 left-0 right-0 bg-gray-700 animate-pulse"></div>
+        </div>
+
+        {/* Breadcrumb Skeleton */}
+        <div className="mt-10 ml-10 text-blue-300">
+          <div className="w-48 h-4 bg-gray-700 animate-pulse"></div>
+        </div>
+
+        {/* Back Button Skeleton */}
+        <div className="w-48 h-8 px-2 py-1 m-10 bg-gray-700 rounded-md animate-pulse"></div>
+
+        {/* Content Skeleton */}
+        <div className="flex flex-wrap items-center justify-center containers">
+          {/* Image Skeleton */}
+          <div className="aspect-[9/16] w-52 m-10 rounded-md bg-gray-700 animate-pulse"></div>
+
+          {/* Text Skeleton */}
+          <div className="w-1/2 font-bold text-white">
+            {/* Title Skeleton */}
+            <div className="w-3/4 h-8 mb-4 bg-gray-700 animate-pulse"></div>
+
+            {/* Genres Skeleton */}
+            <div className="flex gap-2">
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+            </div>
+
+            {/* Synopsis Skeleton */}
+            <div className="mt-4 space-y-2">
+              <div className="w-full h-4 bg-gray-700 animate-pulse"></div>
+              <div className="w-full h-4 bg-gray-700 animate-pulse"></div>
+              <div className="w-2/3 h-4 bg-gray-700 animate-pulse"></div>
+            </div>
+
+            {/* Button Skeleton */}
+            <div className="w-32 h-10 px-4 py-2 my-2 bg-gray-700 rounded animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+    )
+
   if (error) return <p>{error}</p>
   if (!Manga) return <p>No Manga details found</p>
 
   return (
-    <div className="px-24 text-white">
-      <h1 className="text-3xl font-bold">{Manga.title}</h1>
-      <img
-        src={Manga.images.jpg.image_url}
-        alt={Manga.title}
-        className="w-64 h-auto my-4"
-      />
-      <p>{Manga.synopsis}</p>
+    <div className="relative w-full min-h-screen bg-slate-800 bg-dot-black">
+      <div
+        className="relative w-full bg-top bg-cover h-52 banner"
+        style={{ backgroundImage: `url(${Manga.images.jpg.image_url})` }}
+      >
+        <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-slate-800 to-transparent"></div>
+      </div>
+      <div className="mt-10 ml-10 text-blue-300 history">
+        You're on Homepage/Manga/{Manga.title}
+      </div>
+      <Link
+        to={'/'}
+        className="px-2 py-1 m-10 text-white bg-red-600 rounded-md"
+      >
+        BACK TO HOMEPAGE
+      </Link>
+      <div className="flex flex-wrap items-center justify-center containers">
+        <div
+          className="bg-cover image-Manga aspect-[9/16] w-52 m-10 rounded-md"
+          style={{
+            backgroundImage: `url(${Manga.images.jpg.image_url})`,
+          }}
+        ></div>
+        <div className="w-1/2 font-bold text-white">
+          <div className="title">
+            <h1 className="text-4xl">{Manga.title}</h1>
+          </div>
+          {Manga.genres.map((genre) => (
+            <span
+              key={genre.mal_id}
+              className="px-2 py-1 my-5 mr-1 text-xs text-white rounded-full bg-fuchsia-950"
+            >
+              {genre.name}
+            </span>
+          ))}
+          <p className="my-2 text-sm">{Manga.synopsis}</p>
+        </div>
+      </div>
     </div>
   )
 }
