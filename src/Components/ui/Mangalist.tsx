@@ -113,7 +113,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
             className="card"
           >
             <div
-              className="image-card aspect-[9/16] bg-cover mx-4 rounded-sm relative overflow-hidden"
+              className="image-card aspect-[9/16] bg-cover mx-4 rounded-md relative overflow-hidden"
               style={{ backgroundImage: `url(${Manga.images.jpg.image_url})` }}
             >
               <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-center justify-end py-2 bg-gradient-to-t from-fuchsia-950 to-transparent">
