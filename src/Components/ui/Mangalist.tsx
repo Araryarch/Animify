@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import ParallaxTilt from 'react-parallax-tilt'
 import Slider from 'react-slick'
 import { fetchMangaList, Manga } from '../../service/apiService'
 import { Link } from 'react-router-dom'
@@ -27,11 +28,11 @@ const PrevArrow = ({ onClick }: { onClick?: () => void }) => (
 )
 
 const MangaList: React.FC<Propstype> = ({ classname }) => {
-  const [MangaList, setMangaList] = useState<Manga[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
+  const [MangaList, setMangaList] = React.useState<Manga[]>([])
+  const [loading, setLoading] = React.useState(true)
+  const [error, setError] = React.useState<string | null>(null)
 
-  useEffect(() => {
+  React.useEffect(() => {
     const getMangaList = async () => {
       try {
         const data = await fetchMangaList()
@@ -98,7 +99,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
   if (loading)
     return (
       <div
-        className={`flex flex-col gap-2 text-white ${classname} xl:px-24 md:20 px-10 transition-all duration-300 ease-in-out`}
+        className={`flex flex-col gap-2 text-white ${classname} xl:px-24 md:px-20 px-10 transition-all duration-300 ease-in-out`}
       >
         <h1 className="text-3xl font-bold">TOP Manga</h1>
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 md:grid-cols-3">
@@ -133,35 +134,43 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
 
           return (
             <Link
-              to={`/Manga/${Manga.mal_id}`}
+              to={`/manga/${Manga.mal_id}`}
               key={Manga.mal_id}
-              className="py-12 card group"
+              className="py-12 group"
             >
-              <div
-                className="image-card aspect-[9/16] bg-cover mx-4 rounded-md relative overflow-hidden group-hover:scale-110 transition-all ease-in-out duration-300"
-                style={{
-                  backgroundImage: `url(${Manga.images.jpg.image_url})`,
-                }}
+              <ParallaxTilt
+                className="image-card aspect-[9/16] mx-4 rounded-md relative overflow-hidden shadow-lg transition-transform duration-300 ease-in-out"
+                tiltMaxAngleX={25}
+                tiltMaxAngleY={25}
+                scale={1.1}
+                transitionSpeed={300}
               >
-                <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 border-black group-hover:border-2 group-hover:py-5 bg-gradient-to-t from-black to-transparent">
-                  <h1 className="p-2 text-xl font-bold text-left text-white">
-                    {Manga.title}
-                  </h1>
-                  <div className="flex flex-wrap px-2 mt-2">
-                    {Manga.genres.map((genre) => (
-                      <span
-                        key={genre.mal_id}
-                        className="px-2 py-1 mb-1 mr-1 text-xs text-white bg-gray-800 rounded-full"
-                      >
-                        {genre.name}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="absolute px-2 mt-2 text-xs transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 group-hover:relative">
-                    <p>{truncatedSynopsis}</p>
+                <div
+                  className="w-full h-full bg-center bg-cover"
+                  style={{
+                    backgroundImage: `url(${Manga.images.jpg.image_url})`,
+                  }}
+                >
+                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 border-black group-hover:border-l-2 group-hover:border-r-2 group-hover:py-5 bg-gradient-to-t from-black to-transparent">
+                    <h1 className="p-2 text-xl font-bold text-left text-white">
+                      {Manga.title}
+                    </h1>
+                    <div className="flex flex-wrap px-2 mt-2">
+                      {Manga.genres.map((genre) => (
+                        <span
+                          key={genre.mal_id}
+                          className="px-2 py-1 mb-1 mr-1 text-xs text-white bg-gray-800 rounded-full"
+                        >
+                          {genre.name}
+                        </span>
+                      ))}
+                    </div>
+                    <div className="absolute px-2 mt-2 text-xs transition-all duration-500 ease-out opacity-0 group-hover:opacity-100 group-hover:relative">
+                      <p>{truncatedSynopsis}</p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </ParallaxTilt>
             </Link>
           )
         })}

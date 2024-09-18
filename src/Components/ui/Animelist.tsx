@@ -139,7 +139,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
               className="py-12 group"
             >
               <ParallaxTilt
-                className="image-card aspect-[9/16] mx-4 rounded-md relative overflow-hidden"
+                className="image-card aspect-[9/16] mx-4 rounded-md relative overflow-hidden shadow-lg transition-transform duration-300 ease-in-out"
                 tiltMaxAngleX={25}
                 tiltMaxAngleY={25}
                 scale={1.1}
@@ -151,7 +151,7 @@ const AnimeList: React.FC<Propstype> = ({ classname }) => {
                     backgroundImage: `url(${anime.images.jpg.image_url})`,
                   }}
                 >
-                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
+                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-l-2 group-hover:border-r-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
                     <h1 className="p-2 text-xl font-bold text-left text-white">
                       {anime.title}
                     </h1>
