@@ -72,12 +72,6 @@ const Homepage = () => {
               href=""
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
-              FEATURES
-            </a>
-            <a
-              href=""
-              className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
-            >
               CONTACT
             </a>
             <a
