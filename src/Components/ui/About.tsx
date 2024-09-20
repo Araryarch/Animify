@@ -66,7 +66,7 @@ export const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="h-[400vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto[perspective:1000px] [transform-style:preserve-3d] bg-gradient-to-b from-fuchsia-950 to-black"
+      className="h-[350vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto[perspective:1000px] [transform-style:preserve-3d] bg-gradient-to-b from-fuchsia-950 to-black"
     >
       <Header />
       <motion.div
@@ -125,10 +125,10 @@ export const About: React.FC = () => {
 export const Header: React.FC = () => {
   return (
     <div className="relative top-0 left-0 flex flex-col items-center justify-center w-full px-4 py-20 mx-auto max-w-7xl md:py-40">
-      <h1 className="text-2xl font-bold text-center text-white md:text-8xl glitch logo">
+      <h1 className="font-bold text-center text-white text-7xl md:text-8xl glitch logo">
         ANIMIFY
       </h1>
-      <h2 className="text-2xl font-bold text-center text-white md:text-3xl">
+      <h2 className="text-xl font-bold text-center text-white md:text-3xl">
         Your Ultimate Anime & Manga Hub
       </h2>
       <p className="max-w-2xl mt-4 text-base text-center md:text-xl text-neutral-200">
