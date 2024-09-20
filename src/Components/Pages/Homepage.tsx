@@ -31,7 +31,7 @@ const Homepage = () => {
       setColorIndex((prevIndex) => (prevIndex + 1) % darkColors.length)
     }, 1000) // Ganti warna setiap 1 detik
     return () => clearInterval(interval)
-  }, [])
+  })
 
   useEffect(() => {
     const timeout = setTimeout(() => {
