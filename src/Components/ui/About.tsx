@@ -7,9 +7,11 @@ import {
   MotionValue,
 } from 'framer-motion'
 import { fetchAnimeList, Anime } from '../../service/apiService'
+
 export const About: React.FC = () => {
   // State for anime data
   const [animeList, setAnimeList] = useState<Anime[]>([])
+  const [loading, setLoading] = useState(true) // State for loading status
 
   useEffect(() => {
     // Fetch the top anime list on component mount
@@ -17,8 +19,10 @@ export const About: React.FC = () => {
       try {
         const data = await fetchAnimeList()
         setAnimeList(data) // Update state with fetched anime data
+        setLoading(false) // Set loading to false once data is fetched
       } catch (error) {
         console.error('Error fetching anime list:', error)
+        setLoading(false)
       }
     }
     fetchData()
@@ -76,47 +80,69 @@ export const About: React.FC = () => {
           translateY,
           opacity,
         }}
-        className=""
       >
-        <motion.div className="flex flex-row-reverse mb-20 space-x-20 space-x-reverse">
-          {firstRow.map((anime) => (
-            <ProductCard
-              product={{
-                title: anime.title,
-                link: anime.trailer?.embed_url || '#',
-                thumbnail: anime.images.jpg.image_url,
-              }}
-              translate={translateX}
-              key={anime.mal_id}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row mb-20 space-x-20">
-          {secondRow.map((anime) => (
-            <ProductCard
-              product={{
-                title: anime.title,
-                link: anime.trailer?.embed_url || '#',
-                thumbnail: anime.images.jpg.image_url,
-              }}
-              translate={translateXReverse}
-              key={anime.mal_id}
-            />
-          ))}
-        </motion.div>
-        <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
-          {thirdRow.map((anime) => (
-            <ProductCard
-              product={{
-                title: anime.title,
-                link: anime.trailer?.embed_url || '#',
-                thumbnail: anime.images.jpg.image_url,
-              }}
-              translate={translateX}
-              key={anime.mal_id}
-            />
-          ))}
-        </motion.div>
+        {/* Check if still loading */}
+        {loading ? (
+          <>
+            <div className="flex flex-row-reverse mb-20 space-x-20 space-x-reverse">
+              {[...Array(5)].map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
+            <div className="flex flex-row mb-20 space-x-20">
+              {[...Array(5)].map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
+            <div className="flex flex-row-reverse space-x-20 space-x-reverse">
+              {[...Array(5)].map((_, index) => (
+                <SkeletonCard key={index} />
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <motion.div className="flex flex-row-reverse mb-20 space-x-20 space-x-reverse">
+              {firstRow.map((anime) => (
+                <ProductCard
+                  product={{
+                    title: anime.title,
+                    link: anime.trailer?.embed_url || '#',
+                    thumbnail: anime.images.jpg.image_url,
+                  }}
+                  translate={translateX}
+                  key={anime.mal_id}
+                />
+              ))}
+            </motion.div>
+            <motion.div className="flex flex-row mb-20 space-x-20">
+              {secondRow.map((anime) => (
+                <ProductCard
+                  product={{
+                    title: anime.title,
+                    link: anime.trailer?.embed_url || '#',
+                    thumbnail: anime.images.jpg.image_url,
+                  }}
+                  translate={translateXReverse}
+                  key={anime.mal_id}
+                />
+              ))}
+            </motion.div>
+            <motion.div className="flex flex-row-reverse space-x-20 space-x-reverse">
+              {thirdRow.map((anime) => (
+                <ProductCard
+                  product={{
+                    title: anime.title,
+                    link: anime.trailer?.embed_url || '#',
+                    thumbnail: anime.images.jpg.image_url,
+                  }}
+                  translate={translateX}
+                  key={anime.mal_id}
+                />
+              ))}
+            </motion.div>
+          </>
+        )}
       </motion.div>
     </section>
   )
@@ -136,6 +162,13 @@ export const Header: React.FC = () => {
         Animify.
       </p>
     </div>
+  )
+}
+
+// SkeletonCard component for loading state
+export const SkeletonCard: React.FC = () => {
+  return (
+    <div className="rounded-md h-96 aspect-video bg-neutral-800 animate-pulse"></div>
   )
 }
 

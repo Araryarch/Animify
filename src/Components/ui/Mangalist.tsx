@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import ParallaxTilt from 'react-parallax-tilt'
 import Slider from 'react-slick'
 import { fetchMangaList, Manga } from '../../service/apiService'
@@ -31,6 +31,33 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
   const [MangaList, setMangaList] = React.useState<Manga[]>([])
   const [loading, setLoading] = React.useState(true)
   const [error, setError] = React.useState<string | null>(null)
+  const [slidesToShow, setSlidesToShow] = React.useState(5) // Default slides to show
+
+  const handleResize = () => {
+    const width = window.innerWidth
+
+    if (width >= 1600) {
+      setSlidesToShow(5)
+    } else if (width >= 1300) {
+      setSlidesToShow(5)
+    } else if (width >= 1024) {
+      setSlidesToShow(3)
+    } else if (width >= 768) {
+      setSlidesToShow(2)
+    } else {
+      setSlidesToShow(1)
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize)
+
+    handleResize()
+
+    return () => {
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
 
   React.useEffect(() => {
     const getMangaList = async () => {
@@ -52,8 +79,8 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
     dots: false,
     infinite: true,
     speed: 1000,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow,
+    slidesToScroll: slidesToShow,
     autoplay: true,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
@@ -82,13 +109,6 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
@@ -103,13 +123,15 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
       >
         <h1 className="text-3xl font-bold">TOP Manga</h1>
         <ul className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-5 md:grid-cols-3">
-          {Array.from({ length: 5 }, (_, index) => (
+          {Array.from({ length: slidesToShow }, (_, index) => (
             <li
               key={index}
-              className="flex flex-col items-center justify-center p-2 bg-gray-700 rounded shadow-sm animate-pulse aspect-[9/16]"
+              className="flex flex-col items-center justify-center p-2 bg-gray-700 rounded shadow-sm animate-pulse"
             >
-              <div className="w-32 h-40 bg-gray-600 rounded"></div>
-              <div className="w-24 h-6 mt-2 bg-gray-600 rounded"></div>
+              <div className="w-full bg-gray-600 rounded h-72"></div>{' '}
+              {/* Image skeleton */}
+              <div className="w-full h-6 mt-2 bg-gray-600 rounded"></div>{' '}
+              {/* Title skeleton */}
             </li>
           ))}
         </ul>
@@ -134,7 +156,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
 
           return (
             <Link
-              to={`/manga/${Manga.mal_id}`}
+              to={`/Manga/${Manga.mal_id}`}
               key={Manga.mal_id}
               className="py-12 group"
             >
@@ -152,7 +174,7 @@ const MangaList: React.FC<Propstype> = ({ classname }) => {
                     backgroundImage: `url(${Manga.images.jpg.image_url})`,
                   }}
                 >
-                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 border-black group-hover:border-l-2 group-hover:border-r-2 group-hover:py-5 bg-gradient-to-t from-black to-transparent">
+                  <div className="absolute top-0 bottom-0 left-0 right-0 flex flex-col items-start justify-end p-2 group-hover:border-l-2 group-hover:border-r-2 border-fuchsia-400 group-hover:py-5 bg-gradient-to-t from-fuchsia-950 to-transparent">
                     <h1 className="p-2 text-xl font-bold text-left text-white">
                       {Manga.title}
                     </h1>
