@@ -7,6 +7,7 @@ import Topbar from '../ui/Topbar'
 import AnimeList from '../ui/Animelist'
 import MangaList from '../ui/Mangalist'
 import { About } from '../ui/About'
+import Quotes from '../ui/Quotes'
 
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
@@ -77,7 +78,7 @@ const Homepage = () => {
             </a>
 
             <a
-              href=""
+              href="#quotes"
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
               QUOTES
@@ -127,6 +128,7 @@ const Homepage = () => {
         <Topbar pages={'02'} title="MANGA" />
         <MangaList classname={`${sidebar ? 'ml-0 md:ml-0' : 'md:ml-20'}`} />
       </section>
+      <Quotes />
     </>
   )
 }
