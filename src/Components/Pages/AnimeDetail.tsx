@@ -91,6 +91,23 @@ const AnimeDetail: React.FC = () => {
             </span>
           ))}
           <p className="my-2 text-sm">{anime.synopsis}</p>
+          <div>
+            <span className="px-2 py-1 my-5 mr-1 text-xs text-white bg-gray-800 rounded-full">
+              {anime.duration}
+            </span>
+            <span className="px-2 py-1 my-5 mr-1 text-xs text-white bg-gray-800 rounded-full">
+              Popularity : {anime.popularity}
+            </span>
+            <span className="px-2 py-1 my-5 mr-1 text-xs text-white bg-gray-800 rounded-full">
+              Rank : {anime.rank}
+            </span>
+            <span className="px-2 py-1 my-5 mr-1 text-xs text-white bg-gray-800 rounded-full">
+              Rank : {anime.rating}
+            </span>
+            <span className="px-2 py-1 my-5 mr-1 text-xs text-white bg-gray-800 rounded-full">
+              Rank : {anime.score}
+            </span>
+          </div>
           <button
             className="px-4 py-2 my-2 text-white bg-blue-500 rounded hover:bg-blue-600"
             onClick={handleTrailerClick}

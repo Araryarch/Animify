@@ -69,6 +69,11 @@ export interface Anime {
   trailer: {
     embed_url: string
   }
+  duration: string
+  rating: string
+  rank: number
+  score: number
+  popularity: number
 }
 
 export interface Manga {
