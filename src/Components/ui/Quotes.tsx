@@ -11,7 +11,7 @@ const Quotes = () => {
       <blockquote className="text-4xl italic font-bold text-white md:text-6xl lg:text-7xl glitch">
         &quot;JIKA KAU LAPAR MAKA MAKANLAH.&quot;
       </blockquote>
-      <p className="mt-4 text-xl font-bold text-white md:text-2xl lg:text-3xl">
+      <p className="z-40 mt-4 text-xl font-bold text-white md:text-2xl lg:text-3xl">
         ~ Monkey D. Luffy
       </p>
     </section>
