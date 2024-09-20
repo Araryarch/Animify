@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Background from '../../assets/goku.gif'
 import Scroller from '../../assets/scroller.png'
 import { RxHamburgerMenu } from 'react-icons/rx'
@@ -8,9 +8,27 @@ import AnimeList from '../ui/Animelist'
 import MangaList from '../ui/Mangalist'
 import { About } from '../ui/About'
 import Quotes from '../ui/Quotes'
+import { Textload } from '../ui/Textload'
 
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
+  const [loading, setLoading] = useState<boolean>(true)
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false)
+    }, 4000)
+
+    return () => clearTimeout(timeout)
+  }, [])
+
+  if (loading) {
+    return (
+      <div className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] bg-fuchsia-950 px-20">
+        <Textload text="ANIMIFY" duration={3500} />
+      </div>
+    )
+  }
 
   return (
     <>
