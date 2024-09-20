@@ -15,21 +15,24 @@ const Homepage = () => {
   const [loading, setLoading] = useState<boolean>(true)
   const [colorIndex, setColorIndex] = useState(0)
 
-  // Array warna gelap
   const darkColors = [
-    '#1a1f54',
-    '#2c1f54',
-    '#3f155f',
-    '#1e1a54',
-    '#33254b',
-    '#2c0e3f',
-    '#101c3f',
+    '#0D1B2A',
+    '#1B2631',
+    '#2C3E50',
+    '#3B0B45',
+    '#4A0E3D',
+    '#2E2A2B',
+    '#2B2D42',
+    '#3A3D3F',
+    '#1E1F28',
+    '#232B2B',
+    '#2F2A5B',
   ]
 
   useEffect(() => {
     const interval = setInterval(() => {
       setColorIndex((prevIndex) => (prevIndex + 1) % darkColors.length)
-    }, 1000) // Ganti warna setiap 1 detik
+    }, 200)
     return () => clearInterval(interval)
   })
 
