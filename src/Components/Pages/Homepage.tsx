@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import Topbar from '../ui/Topbar'
 import AnimeList from '../ui/Animelist'
 import MangaList from '../ui/Mangalist'
+import { About } from '../ui/About'
 
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
@@ -57,6 +58,12 @@ const Homepage = () => {
               HOME
             </a>
             <a
+              href="#about"
+              className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
+            >
+              ABOUT
+            </a>
+            <a
               href="#anime"
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
             >
@@ -68,12 +75,7 @@ const Homepage = () => {
             >
               MANGA
             </a>
-            <a
-              href=""
-              className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
-            >
-              CONTACT
-            </a>
+
             <a
               href=""
               className="transition-colors duration-300 ease-in-out hover:text-fuchsia-300"
@@ -110,6 +112,7 @@ const Homepage = () => {
           ></motion.div>
         </div>
       </section>
+      <About />
       <section
         id="anime"
         className="box-border relative w-full min-h-screen bg-gradient-to-b from-black to-fuchsia-950"
