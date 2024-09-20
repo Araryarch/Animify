@@ -15,7 +15,7 @@ const Topbar = ({ title, pages }: topbarProps) => {
           <p className="text-xs logo">section</p>
         </div>
         <div className="flex-1 hidden xl:flex"></div>
-        <div className="flex-1 hidden xl:flex">PAGE - {pages} / 06</div>
+        <div className="flex-1 hidden xl:flex">PAGE - {pages} / 02</div>
         <div className="flex-1 border-[1px] hidden xl:flex"></div>
       </div>
       <div className="h-44"></div>
