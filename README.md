@@ -17,7 +17,7 @@ Animify dibangun dengan teknologi mutakhir:
 - **Styling**: Tailwind CSS untuk desain responsif dan modern.
 - **API**: JikanAPI untuk akses data anime dan manga yang komprehensif.
 
-## Visit my website here
+## 😶‍🌫️ Visit my website here
 
 ```plaintext
    https://animify.site
