@@ -17,7 +17,7 @@ const Homepage = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false)
-    }, 3800)
+    }, 4000)
 
     return () => clearTimeout(timeout)
   }, [])
