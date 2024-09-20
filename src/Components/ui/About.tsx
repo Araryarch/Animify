@@ -66,7 +66,7 @@ export const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className="h-[300vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto[perspective:1000px] [transform-style:preserve-3d] bg-gradient-to-b from-fuchsia-950 to-black"
+      className="h-[400vh] py-40 overflow-hidden antialiased relative flex flex-col self-auto[perspective:1000px] [transform-style:preserve-3d] bg-gradient-to-b from-fuchsia-950 to-black"
     >
       <Header />
       <motion.div
@@ -125,8 +125,8 @@ export const About: React.FC = () => {
 export const Header: React.FC = () => {
   return (
     <div className="relative top-0 left-0 flex flex-col items-center justify-center w-full px-4 py-20 mx-auto max-w-7xl md:py-40">
-      <h1 className="text-2xl font-bold text-center text-white md:text-8xl glitch">
-        ANIMIFY <br />
+      <h1 className="text-2xl font-bold text-center text-white md:text-8xl glitch logo">
+        ANIMIFY
       </h1>
       <h2 className="text-2xl font-bold text-center text-white md:text-3xl">
         Your Ultimate Anime & Manga Hub
@@ -160,16 +160,13 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       whileHover={{
         y: -20,
       }}
-      className="group/product h-96 w-[30rem] relative flex-shrink-0"
+      className="group/product h-96 w-[30rem] relative flex-shrink-0 rounded-md"
     >
-      <a
-        href={product.link}
-        className="block rounded-xl group-hover/product:shadow-2xl"
-      >
+      <a href={product.link} className="block group-hover/product:shadow-2xl">
         <img
           src={product.thumbnail}
           alt={product.title}
-          className="absolute inset-0 object-cover object-left-top w-full h-full"
+          className="absolute inset-0 object-cover object-left-top w-full h-full rounded-md"
         />
       </a>
       <div className="absolute inset-0 w-full h-full bg-black opacity-0 pointer-events-none group-hover/product:opacity-80"></div>
