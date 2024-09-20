@@ -13,6 +13,25 @@ import { Textload } from '../ui/Textload'
 const Homepage = () => {
   const [sidebar, isSidebar] = useState<boolean>(false)
   const [loading, setLoading] = useState<boolean>(true)
+  const [colorIndex, setColorIndex] = useState(0)
+
+  // Array warna gelap
+  const darkColors = [
+    '#1a1f54',
+    '#2c1f54',
+    '#3f155f',
+    '#1e1a54',
+    '#33254b',
+    '#2c0e3f',
+    '#101c3f',
+  ]
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setColorIndex((prevIndex) => (prevIndex + 1) % darkColors.length)
+    }, 1000) // Ganti warna setiap 1 detik
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -24,9 +43,13 @@ const Homepage = () => {
 
   if (loading) {
     return (
-      <span className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] bg-fuchsia-950 px-20">
+      <motion.span
+        className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] px-20"
+        animate={{ backgroundColor: darkColors[colorIndex] }}
+        transition={{ duration: 1 }} // durasi transisi antar warna
+      >
         <Textload text="ANIMIFY" duration={3500} />
-      </span>
+      </motion.span>
     )
   }
 
