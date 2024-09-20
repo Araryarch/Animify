@@ -125,7 +125,7 @@ export const About: React.FC = () => {
 export const Header: React.FC = () => {
   return (
     <div className="relative top-0 left-0 flex flex-col items-center justify-center w-full px-4 py-20 mx-auto max-w-7xl md:py-40">
-      <h1 className="text-2xl font-bold text-center text-white md:text-7xl">
+      <h1 className="text-2xl font-bold text-center text-white md:text-8xl glitch">
         ANIMIFY <br />
       </h1>
       <h2 className="text-2xl font-bold text-center text-white md:text-3xl">
@@ -162,7 +162,10 @@ export const ProductCard: React.FC<ProductCardProps> = ({
       }}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <a href={product.link} className="block group-hover/product:shadow-2xl ">
+      <a
+        href={product.link}
+        className="block rounded-xl group-hover/product:shadow-2xl"
+      >
         <img
           src={product.thumbnail}
           alt={product.title}
