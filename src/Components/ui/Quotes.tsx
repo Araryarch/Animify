@@ -5,7 +5,10 @@ const Quotes = () => {
     <section
       id="quotes"
       className="relative flex flex-col items-center justify-center w-full min-h-screen px-4 text-center bg-center bg-cover"
-      style={{ backgroundImage: `url(${Background})` }}
+      style={{
+        backgroundImage: `url(${Background})`,
+        backgroundAttachment: 'fixed',
+      }}
     >
       <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-b from-black to-transparent"></div>
       <blockquote className="text-4xl italic font-bold text-white md:text-6xl lg:text-7xl glitch">
