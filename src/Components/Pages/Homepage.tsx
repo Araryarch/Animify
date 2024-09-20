@@ -24,9 +24,9 @@ const Homepage = () => {
 
   if (loading) {
     return (
-      <div className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] bg-fuchsia-950 px-20">
+      <span className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] bg-fuchsia-950 px-20">
         <Textload text="ANIMIFY" duration={3500} />
-      </div>
+      </span>
     )
   }
 
