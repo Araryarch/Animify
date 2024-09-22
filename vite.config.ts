@@ -6,13 +6,4 @@ export default defineConfig({
     sourcemap: true,
   },
   plugins: [react()],
-  server: {
-    proxy: {
-      '/api': {
-        target: 'https://animechan.io',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
-    },
-  },
 })
