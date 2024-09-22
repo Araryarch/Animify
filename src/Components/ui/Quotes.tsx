@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useRef } from 'react'
+import { motion } from 'framer-motion'
 import Background from '../../assets/goku.gif'
 
 interface Quote {
@@ -7,9 +8,28 @@ interface Quote {
   anime: string
 }
 
+const scrambleText = (text: string, progress: number): string => {
+  const scrambled = text
+    .split('')
+    .map((char) => {
+      if (Math.random() < progress || char === ' ') {
+        return char // Return actual character when enough time has passed
+      }
+      const randomChar = String.fromCharCode(
+        33 + Math.floor(Math.random() * 94)
+      ) // Random ASCII character
+      return randomChar
+    })
+    .join('')
+  return scrambled
+}
+
 const Quotes = () => {
   const [quote, setQuote] = useState<Quote | null>(null)
   const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isVisible, setIsVisible] = useState<boolean>(false)
+  const [scrambledQuote, setScrambledQuote] = useState<string>('')
+  const sectionRef = useRef<HTMLElement | null>(null)
 
   const quotes: Quote[] = [
     {
@@ -233,11 +253,46 @@ const Quotes = () => {
     }
 
     getRandomQuote()
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true) // Set true when section is visible
+        }
+      },
+      { threshold: 0.5 }
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
   }, [])
+
+  useEffect(() => {
+    if (!quote || !isVisible) return
+
+    let progress = 0
+    const interval = setInterval(() => {
+      progress += 0.05
+      setScrambledQuote(scrambleText(quote.quote, progress))
+      if (progress >= 1) {
+        clearInterval(interval) // Stop scrambling once the whole text is revealed
+      }
+    }, 100)
+
+    return () => clearInterval(interval)
+  }, [quote, isVisible])
 
   return (
     <section
       id="quotes"
+      ref={sectionRef}
       className="relative flex flex-col items-center justify-center w-full min-h-screen px-4 text-center bg-center bg-cover"
       style={{
         backgroundImage: `url(${Background})`,
@@ -248,14 +303,24 @@ const Quotes = () => {
 
       {isLoading ? (
         <div className="text-3xl text-white">Loading...</div>
-      ) : quote ? (
+      ) : quote && isVisible ? (
         <>
-          <blockquote className="text-3xl italic font-bold text-white md:text-6xl lg:text-7xl glitch">
-            &quot;{quote.quote}&quot;
-          </blockquote>
-          <p className="z-40 mt-4 text-xl font-bold text-white md:text-2xl lg:text-3xl">
+          <motion.blockquote
+            className="text-3xl italic font-bold text-white md:text-6xl lg:text-7xl glitch"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 2 }}
+          >
+            &quot;{scrambledQuote}&quot;
+          </motion.blockquote>
+          <motion.p
+            className="z-40 mt-4 text-xl font-bold text-white md:text-2xl lg:text-3xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 2, duration: 2 }}
+          >
             ~ {quote.character} from {quote.anime}
-          </p>
+          </motion.p>
         </>
       ) : (
         <div className="text-4xl text-white">Failed to load quote</div>
