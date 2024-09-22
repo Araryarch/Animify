@@ -39,7 +39,7 @@ const Homepage = () => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setLoading(false)
-    }, 4000)
+    }, 2000)
 
     return () => clearTimeout(timeout)
   }, [])
@@ -49,9 +49,9 @@ const Homepage = () => {
       <motion.span
         className="fixed top-0 bottom-0 left-0 right-0 z-[9999999] px-20"
         animate={{ backgroundColor: darkColors[colorIndex] }}
-        transition={{ duration: 1 }} // durasi transisi antar warna
+        transition={{ duration: 0.5 }}
       >
-        <Textload text="ANIMIFY" duration={3500} />
+        <Textload text="ANIMIFY" duration={2000} />
       </motion.span>
     )
   }
