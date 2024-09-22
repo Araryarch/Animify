@@ -6,10 +6,10 @@ const api = axios.create({
   baseURL: BASE_URL,
 })
 
-const requestCache = new Map<string, unknown>()
+const requestCache = new Map<string, object>()
 const requestQueue: {
   endpoint: string
-  resolve: (value: unknown) => void
+  resolve: (value: object) => void
   reject: (reason?: unknown) => void
 }[] = []
 
@@ -26,7 +26,7 @@ const processQueue = () => {
   setTimeout(() => {
     api
       .get(endpoint)
-      .then((response: AxiosResponse<unknown>) => {
+      .then((response: AxiosResponse<object>) => {
         requestCache.set(endpoint, response.data)
         resolve(response.data)
       })
@@ -38,10 +38,10 @@ const processQueue = () => {
   }, RATE_LIMIT_DELAY)
 }
 
-const fetchWithRateLimit = (endpoint: string): Promise<unknown> => {
+const fetchWithRateLimit = (endpoint: string): Promise<object> => {
   return new Promise((resolve, reject) => {
     if (requestCache.has(endpoint)) {
-      resolve(requestCache.get(endpoint))
+      resolve(requestCache.get(endpoint)!)
     } else {
       requestQueue.push({ endpoint, resolve, reject })
       processQueue()
@@ -49,6 +49,7 @@ const fetchWithRateLimit = (endpoint: string): Promise<unknown> => {
   })
 }
 
+// Anime interfaces
 export interface Genre {
   mal_id: number
   type: string
@@ -92,6 +93,7 @@ export interface ApiResponse<T> {
   data: T
 }
 
+// Fetch anime list
 export const fetchAnimeList = async (): Promise<Anime[]> => {
   try {
     const response = (await fetchWithRateLimit('/top/anime')) as ApiResponse<
@@ -104,6 +106,7 @@ export const fetchAnimeList = async (): Promise<Anime[]> => {
   }
 }
 
+// Fetch anime by ID
 export const fetchAnimeById = async (id: number): Promise<Anime> => {
   try {
     const response = (await fetchWithRateLimit(
@@ -115,18 +118,21 @@ export const fetchAnimeById = async (id: number): Promise<Anime> => {
     throw error
   }
 }
+
+// Fetch manga by ID
 export const fetchMangaById = async (id: number): Promise<Manga> => {
   try {
     const response = (await fetchWithRateLimit(
       `/manga/${id}`
-    )) as ApiResponse<Anime>
+    )) as ApiResponse<Manga>
     return response.data
   } catch (error) {
-    console.error('Error fetching anime details', error)
+    console.error('Error fetching manga details', error)
     throw error
   }
 }
 
+// Fetch manga list
 export const fetchMangaList = async (): Promise<Manga[]> => {
   try {
     const response = (await fetchWithRateLimit('/top/manga')) as ApiResponse<
