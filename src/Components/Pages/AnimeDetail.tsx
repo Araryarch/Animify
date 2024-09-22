@@ -28,8 +28,36 @@ const AnimeDetail: React.FC = () => {
 
   if (loading)
     return (
-      <div className="relative w-full min-h-screen bg-fuchsia-950 bg-dot-black">
-        {/* Skeleton Loader */}
+      <div className="relative w-full min-h-screen bg-fuchsia-950">
+        <div className="relative w-full bg-top bg-cover h-52 banner">
+          <div className="absolute top-0 bottom-0 left-0 right-0 bg-gray-700 animate-pulse"></div>
+        </div>
+
+        <div className="mt-10 ml-10 text-blue-300">
+          <div className="w-48 h-4 bg-gray-700 animate-pulse"></div>
+        </div>
+
+        <div className="w-48 h-8 px-2 py-1 m-10 bg-gray-700 rounded-md animate-pulse"></div>
+
+        <div className="flex flex-wrap items-center justify-center containers">
+          <div className="aspect-[9/16] w-52 m-10 rounded-md bg-gray-700 animate-pulse"></div>
+
+          <div className="w-1/2 font-bold text-white">
+            <div className="w-3/4 h-8 mb-4 bg-gray-700 animate-pulse"></div>
+
+            <div className="flex gap-2">
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+              <div className="w-12 h-4 bg-gray-700 rounded-full animate-pulse"></div>
+            </div>
+
+            <div className="mt-4 space-y-2">
+              <div className="w-full h-4 bg-gray-700 animate-pulse"></div>
+              <div className="w-full h-4 bg-gray-700 animate-pulse"></div>
+              <div className="w-2/3 h-4 bg-gray-700 animate-pulse"></div>
+            </div>
+          </div>
+        </div>
       </div>
     )
 
@@ -51,7 +79,7 @@ const AnimeDetail: React.FC = () => {
   }
 
   return (
-    <div className="relative w-full min-h-screen bg-fuchsia-950 bg-dot-black">
+    <div className="relative w-full min-h-screen bg-fuchsia-950">
       {/* Banner */}
       <div
         className="relative w-full bg-top bg-cover h-52 banner"
