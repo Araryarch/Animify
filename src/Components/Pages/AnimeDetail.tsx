@@ -60,16 +60,13 @@ const AnimeDetail: React.FC = () => {
         <div className="absolute top-0 bottom-0 left-0 right-0 bg-gradient-to-t from-fuchsia-950 to-transparent"></div>
       </div>
 
-      <div className="mt-10 ml-10 text-blue-300 history">
-        You're on Homepage/Anime/{anime.title}
+      <div className="mt-10 ml-10 text-white history">
+        You're on{' '}
+        <Link to={'/'} className="text-blue-400">
+          Homepage
+        </Link>
+        /Anime/{anime.title}
       </div>
-
-      <Link
-        to={'/'}
-        className="px-2 py-1 m-10 text-white bg-red-600 rounded-md"
-      >
-        BACK TO HOMEPAGE
-      </Link>
 
       <div className="flex flex-wrap items-center justify-center containers">
         <div
